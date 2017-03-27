@@ -1,0 +1,53 @@
+{
+  "name": "js-stack-from-scratch",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "pavelshen <pavelshen@foxmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "gulp",
+    "server": "gulp webserver"
+  },
+  "babel": {
+    "presets": [
+      "latest",
+      "react"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "env": {
+      "browser": true
+    },
+    "plugins": [
+      "import"
+    ]
+  },
+  "devDependencies": {
+    "babel-loader": "^6.4.1",
+    "babel-preset-latest": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "del": "^2.2.2",
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-connect": "^5.0.0",
+    "gulp-eslint": "^3.0.1",
+    "gulp-sequence": "^0.4.6",
+    "webpack-stream": "^3.2.0"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.23.0",
+    "graceful-fs": "^4.1.11",
+    "immutable": "^3.8.1",
+    "minimatch": "^3.0.3",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "redux": "^3.6.0"
+  }
+}
