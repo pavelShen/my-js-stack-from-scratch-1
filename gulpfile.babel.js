@@ -1,15 +1,19 @@
 /* eslint-disable no-console */
 
 import gulp from 'gulp';
+import babel from 'gulp-babel';
 import connect from 'gulp-connect';
 import gulpSequence from 'gulp-sequence';
+import mocha from 'gulp-mocha';
 import del from 'del';
 import eslint from 'gulp-eslint';
 import webpack from 'webpack-stream';
 import webpackConfig from './webpack.config.babel';
 
+
 const paths = {
   allSrcJs: 'src/**/*.js?(x)',
+  allLibTests: 'lib/test/**/*.js',
   serverSrcJs: 'src/server/**/*.js?(x)',
   sharedSrcJs: 'src/shared/**/*.js?(x)',
   clientEntryPoint: 'src/client/app.jsx',
@@ -41,6 +45,17 @@ gulp.task('clean', () => del([
   paths.clientBundle,
 ]));
 
+gulp.task('build', ['lint', 'clean'], () =>
+  gulp.src(paths.allSrcJs)
+    .pipe(babel())
+    .pipe(gulp.dest(paths.libDir)),
+);
+
+gulp.task('test', ['build'], () =>
+  gulp.src(paths.allLibTests)
+    .pipe(mocha()),
+);
+
 gulp.task('main', ['lint', 'clean'], () =>
   gulp.src(paths.clientEntryPoint)
     .pipe(webpack(webpackConfig))
@@ -48,9 +63,9 @@ gulp.task('main', ['lint', 'clean'], () =>
 );
 
 gulp.task('watch', () => {
-  gulp.watch(paths.allSrcJs, ['main', 'startServer']);
+  gulp.watch(paths.allSrcJs, gulpSequence('main', 'startServer'));
 });
 
 gulp.task('default', ['watch', 'main']);
 
-gulp.task('webserver', ['watch', 'main', 'startServer']);
+gulp.task('webserver', gulpSequence(['watch', 'main'], 'startServer'));

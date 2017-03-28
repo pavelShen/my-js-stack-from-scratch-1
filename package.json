@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "start": "gulp",
-    "server": "gulp webserver"
+    "server": "gulp webserver",
+    "test": "gulp test"
   },
   "babel": {
     "presets": [
@@ -27,6 +28,7 @@
     "babel-loader": "^6.4.1",
     "babel-preset-latest": "^6.24.0",
     "babel-preset-react": "^6.23.0",
+    "chai": "^3.5.0",
     "del": "^2.2.2",
     "eslint": "^3.18.0",
     "eslint-config-airbnb": "^14.1.0",
@@ -37,7 +39,11 @@
     "gulp-babel": "^6.1.2",
     "gulp-connect": "^5.0.0",
     "gulp-eslint": "^3.0.1",
+    "gulp-mocha": "^4.1.0",
     "gulp-sequence": "^0.4.6",
+    "mocha": "^3.2.0",
+    "sinon": "^2.1.0",
+    "sinon-chai": "^2.9.0",
     "webpack-stream": "^3.2.0"
   },
   "dependencies": {
@@ -48,6 +54,8 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "redux-immutable": "^4.0.0",
+    "webpack": "^2.3.2"
   }
 }

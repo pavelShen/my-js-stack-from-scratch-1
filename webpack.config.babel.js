@@ -1,3 +1,5 @@
+// import webpack from 'webpack';
+
 export default {
   output: {
     filename: 'client-bundle.js',
@@ -15,4 +17,11 @@ export default {
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
+  plugins: [
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress: {
+    //     warnings: false,
+    //   },
+    // }),
+  ],
 };

@@ -6,4 +6,10 @@ export default class {
   bark() {
     return `wah,i am ${this.name}`;
   }
+
+  barkInConsole() {
+    /* eslint-disable no-console */
+    console.log(this.bark());
+    /* eslint-enable no-console */
+  }
 }
